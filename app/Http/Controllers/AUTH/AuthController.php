@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    //Crear Usuario
     public function create(Request $request){
         $rules = [
             'name' => 'required|string|max:100',
@@ -38,6 +39,7 @@ class AuthController extends Controller
             ], 200);
     }
 
+    //Hacer Login
     public function login(Request $request){
         $rules = [
             'email' => 'required|string|email|max:100',
@@ -67,6 +69,7 @@ class AuthController extends Controller
         ],200);
     }
 
+    //Desloguearse
     public function logout(Request $request){
         $request->user()->tokens()->delete();
         return response()->json([

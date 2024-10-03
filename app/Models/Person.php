@@ -14,10 +14,6 @@ class Person extends Model
         'address',
         'phone'
     ];
-//
-//    public static function get()
-//    {
-//    }
 
 
 }
