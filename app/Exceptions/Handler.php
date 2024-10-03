@@ -3,6 +3,13 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Spatie\FlareClient\Http\Exceptions\NotFound;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -27,4 +34,21 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    protected function unauthenticated($request, AuthenticationException $exception): Response|JsonResponse|RedirectResponse
+    {
+        return response()->json(['message' => 'Unauthenticated'], 401);
+    }
+
+//    public function register(): void
+//    {
+//        $this->renderable(function (NotFoundHttpException $e,$request) {
+//            if ($request->is('api/obtener-personas')) {
+//                return response()->json([
+//                    'status' => false,
+//                    'message' => 'No se encontraron personas con ese nombre'
+//                ], 404);
+//            }
+//        });
+//    }
 }
