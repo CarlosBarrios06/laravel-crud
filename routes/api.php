@@ -25,6 +25,7 @@ Route::post('auth/login', [AuthController::class, 'login']);
 //Rutas Privadas
 Route::middleware(['middleware' => 'auth:sanctum'])->group(function () {
 
+    //Para Acceder a estas rutas, usa un header que sea: 'Authorization':'Bearer token_de_usuario'
     //Rutas de Person
     Route::get('obtener-personas', [PersonController::class, 'obtenerPersonas']);
     Route::post('crear-registro', [PersonController::class, 'crear']);

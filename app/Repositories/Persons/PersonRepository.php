@@ -45,6 +45,7 @@ class PersonRepository
 
     }
 
+    //Buscar con filtros
     public function busquedaAvanzada(Request $request)
     {
         $expenses = $this->model->select(['id', 'status','name','address','phone'])
@@ -125,7 +126,7 @@ class PersonRepository
 
     }
 
-    //Buscar registro
+    //Buscar Registro
     public function buscar(Request $request){
         $rules = [
             'id' => 'required|integer|min:1'
@@ -159,7 +160,7 @@ class PersonRepository
         ], 400);
     }
 
-
+    //Actualizar Registro
     public function actualizar(Request $request)
     {
         $rules = [
@@ -229,6 +230,7 @@ class PersonRepository
         }
     }
 
+    //Desactivar Registro
     public function desactivar(Request $request)
     {
         $rules = [
@@ -278,6 +280,7 @@ class PersonRepository
         ], 400);
     }
 
+    //Activar Registro
     public function activar(Request $request)
     {
         $rules = [
