@@ -3,13 +3,8 @@
 namespace App\Repositories\Persons;
 
 use App\Models\Person;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Exception;
 
 class PersonRepository
 {
